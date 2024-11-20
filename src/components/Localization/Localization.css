@@ -1,0 +1,22 @@
+.localization__container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.localization__text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+iframe{
+    width: 100%;
+    border-radius: 5px;
+    height: 60vh;
+    margin: 30px 0;
+}

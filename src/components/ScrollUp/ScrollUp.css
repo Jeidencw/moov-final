@@ -1,0 +1,23 @@
+.scrollup{
+    position: fixed;
+    right: 2.5rem;
+    bottom: -20%;
+    background-color: gray;
+    opacity: 0.8;
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.4rem;
+    transition: .4s;
+}
+
+.scrollup__icon{
+    font-size: 1.5rem;
+    color: white
+}
+
+.scrollup:hover{
+    background-color: #363636;
+}
+
+.show-scroll{
+    bottom: 3rem;
+}

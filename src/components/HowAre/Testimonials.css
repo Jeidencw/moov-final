@@ -1,0 +1,100 @@
+.how__slide__container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1120px;
+    width: 100%;
+}
+
+.how__slide__content{
+    margin: 0 40px;
+}
+
+.how__card{
+    border-radius: 25px;
+    background-color: white;
+}
+
+.card__imageDepoimentos{
+    position: relative;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%; 
+    background: white;
+    padding: 3px;
+}
+.card__imageDepoimentos .card__imgDepoimentos{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid rgba(0, 0, 0, 0.6);
+}
+
+.image__contentDepoimentos,
+.card__contentDepoimentos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 14px; 
+}
+
+.image__contentDepoimentos{
+    position: relative;
+    row-gap: 5px;
+    padding: 25px 0;
+}
+
+.nomeDepoimentos{
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+}
+
+.descriptionDepoimentos{
+    font-size: 14px;
+    text-align: center;
+    line-height: 15px;
+}
+
+.overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--moov-color);
+    border-radius: 25px 25px 0 25px;
+}
+
+.overlay::before,
+.overlay::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -40px;
+    height: 40px;
+    width: 40px;
+    background-color: var(--moov-color);
+}
+
+.overlay::after{
+    border-radius: 0 25px 0 0;
+    background-color: white;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: black;
+}
+
+@media screen and (max-width: 768px){
+    .slide-contentDepoimentos{
+        margin: 0 auto;
+    }
+
+    .icon__gallery{
+        top: 0;
+        height: 35px;
+    }
+}

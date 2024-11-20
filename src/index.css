@@ -1,0 +1,208 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+    /*========== Colors ==========*/
+    /*Color mode HSL(hue, saturation, lightness)*/
+    --moov-color: #1d7b7f;
+    --moov-color-dark: hsl(182, 65%, 24%);
+    --moov-color-light: #bedddd;
+    --title-color: hsl(0, 0, 50%);
+    --title-color-dark: hsl(0, 0, 0%);
+    --text-color: #363636;  
+    --body-color: hsl(0, 0, 9%);
+    --menu-color: rgba(131, 197, 197, 1);
+
+    /*========== Font and typography ==========*/
+    --body-font: "Poppins", sans-serif;
+
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --big-font-size: 3.5rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+    --tiny-font-size: 0.625rem;
+
+    /*========== Font weight ==========*/
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semi-bold: 600;
+
+    /*========== z index ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+    --z-modal: 1000;
+}
+
+/* Responsive typography */
+@media screen and (max-width: 992px) {
+    :root {
+        --big-font-size: 2.75rem;
+        --h1-font-size: 1.5rem;
+        --h2-font-size: 1.25rem;
+        --h3-font-size: 1rem;
+        --normal-font-size: 0.938rem;
+        --small-font-size: 0.813rem;
+        --smaller-font-size: 0.75rem;
+    }
+}
+
+/*=============== BASE ===============*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body,
+button,
+input,
+textarea {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+}
+
+body {
+    color: var(--text-color);
+    /* background: linear-gradient(to bottom right, white, var(--moov-color)); */
+    background-color: var(--moov-color-light);
+    background-attachment: fixed;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--title-color);
+    font-weight: var(--font-semi-bold);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.section {
+    padding: 4.5rem 0 2rem;
+}
+
+.section__title {
+    font-size: var(--h1-font-size);
+    color: var(--title-color);
+    margin-bottom: 15px;
+}
+
+.section__subtitle {
+    display: block;
+    font-size: var(--small-font-size);
+    margin-bottom: 4rem;
+}
+
+.section__title,
+.section__subtitle {
+    text-align: center; 
+}
+
+/*=============== LAYOUT ===============*/
+.container {
+    max-width: 1150px;
+    margin: 0 auto !important;
+    height: 100%;
+    width: 90%;
+}
+
+.grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+/*=============== BUTTONS ===============*/
+.button {
+    display: inline-block;
+    background-color: var(--title-color);
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    font-weight: var(--font-medium);
+    background-color: var(--moov-color);
+    color: var(--moov-color-light);
+    transition: .3s all;
+}
+
+.button:hover {
+    background-color: var(--moov-color-dark);
+    transform: scale(1.05);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+}
+
+.button__icon {
+    margin-left: var(--mb-0-5);
+}
+
+.button--flex {
+    display: inline-flex;
+    align-items: center;
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For large devices */
+@media screen and (max-width: 992px) {
+    .container {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }
+
+    .button {
+        padding: 1rem 1.75rem;
+    }
+}
+
+/* For medium devices */
+@media screen and (max-width: 768px) {
+    body{
+        margin-top: 1rem;
+    }
+
+    .container{
+        max-height: none;
+    }
+
+    .section{
+        padding: 2.5rem 0 1rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .section{
+        padding:2.5rem 0 1rem;
+    }
+}
+
+/* For small devices */
+@media screen and (max-width: 350px) {
+    :root {
+        --big-font-size: 2.25rem;
+    }
+
+    .container {
+        margin-left: 1;
+        margin-right: 1;
+    }
+}

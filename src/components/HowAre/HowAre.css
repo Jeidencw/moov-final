@@ -1,0 +1,26 @@
+.how__are{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.how__are .container{
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.how__are-title{
+    margin-bottom: 3rem;
+}
+
+.how__are__text{
+    text-align: center;
+    margin-bottom: 2rem;
+    width: 90%;
+}
