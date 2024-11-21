@@ -22,6 +22,8 @@ import img18 from "./imagens/18.jpg";
 import img19 from "./imagens/19.jpg";
 import img20 from "./imagens/20.jpg";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+
 const images = [
   [img1, "Studio"],
   [img2, "Pilates"],
@@ -50,6 +52,8 @@ const Gallery = () => {
   const [imgNumbers, setImgNumbers] = useState(5);
   const [visibleImages, setVisibleImages] = useState(imgNumbers);
   const [filter, setFilter] = useState("Todas");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const handleResize = () => {
@@ -89,6 +93,15 @@ const Gallery = () => {
 
   const loadLessImages = () => {
     setVisibleImages((prevVisible) => Math.max(prevVisible - 6, imgNumbers));
+  };
+
+  const openModal = (index) => {
+    setActiveIndex(index);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
@@ -154,7 +167,12 @@ const Gallery = () => {
         <div className="gallery__container">
           {filteredImages.slice(0, visibleImages).map((src, index) => (
             <div key={index} className="gallery__card">
-              <img src={src[0]} className="gallery__images" alt="" />
+              <img
+                src={src[0]}
+                className="gallery__images"
+                alt={src[1]}
+                onClick={() => openModal(src[0])}
+              />
             </div>
           ))}
         </div>
@@ -171,6 +189,35 @@ const Gallery = () => {
           </button>
         )}
       </div>
+
+      {isModalOpen && (
+        <div className="gallery__modal" onClick={closeModal}>
+          <div
+            className="gallery__modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button className="gallery__modal-close" onClick={closeModal}>
+              &times;
+            </button>
+            <Swiper
+              initialSlide={activeIndex}
+              spaceBetween={10}
+              slidesPerView={1}
+              onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+            >
+              {filteredImages.map((src, index) => (
+                <SwiperSlide key={index}>
+                  <img
+                    src={src[0]}
+                    alt={src[1]}
+                    className="gallery__modal-image"
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
